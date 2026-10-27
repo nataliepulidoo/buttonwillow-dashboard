@@ -60,8 +60,11 @@ pnpm build
 pnpm preview
 ```
 
-The build runs the privacy audit, TypeScript, Vite and an output audit. It fails
-when private file types are tracked or appear in public assets/build paths.
+The build runs the privacy audit, TypeScript, Vite and an output audit. It scans
+deployment source directly, including when Vercel has removed Git metadata, and
+also checks tracked paths when a usable checkout exists. Private file types in
+source, public assets or build output block the build. Tests reproduce the pruned
+Git environment and verify that private files are still rejected.
 `pnpm dev` runs a local preview at port 5173. This clean copy does not contain the
 original computer-only workbook endpoints.
 

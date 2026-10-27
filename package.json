@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "node scripts/audit-private-data.mjs && tsc -b && vite build && node scripts/audit-private-data.mjs dist",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "vitest run src",
+    "test": "vitest run src && node --test scripts/audit-private-data.test.mjs",
     "audit:deployment": "node scripts/audit-private-data.mjs dist"
   },
   "dependencies": {
